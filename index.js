@@ -10,11 +10,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({ 
-    origin: 'http://localhost:5173',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 
-const PORT = 8080;
+const PORT = process.env.PORT || 5000;
 const MONGO_DB = process.env.MONGO_DB;
 
 app.use("/api", userRoute);
