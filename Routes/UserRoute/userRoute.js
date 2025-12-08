@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { requestOtp, verifyOtp, completeSignup } = require("../Controller/userController");
+const { requestOtp, verifyOtp, completeSignup } = require("../../Controller/UserController/userController");
 
 router.post("/request-otp", requestOtp);      
 router.post("/verify-otp", verifyOtp);         
