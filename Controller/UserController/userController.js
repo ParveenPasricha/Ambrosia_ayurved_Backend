@@ -17,7 +17,7 @@ const requestOtp = async (req, res) => {
 
     let user = await User.findOne({ mobile });
     const otp = generateOTP();
-    const otpExpires = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
+    const otpExpires = new Date(Date.now() + 5 * 60 * 1000); 
 
     if (!user) {
       // New user
