@@ -25,8 +25,8 @@ const requestOtp = async (req, res) => {
         mobile,
         otp,
         otpExpires,
-        name: "",
-        email: ""
+        name: null,
+        email: null
       });
       await user.save();
       
@@ -74,6 +74,16 @@ const completeSignup = async (req, res) => {
         message: "All fields required" 
       });
     }
+
+     if (email){
+        const existingEmail = await User.findOne({ email });
+        if (existingEmail) {
+          return res.status(400).json({
+          success: false,
+          message: "Email already in use"
+        });
+       }
+      }
 
     const user = await User.findOne({ mobile });
     if (!user) {
