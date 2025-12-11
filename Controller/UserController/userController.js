@@ -97,7 +97,7 @@ const completeSignup = async (req, res) => {
     }
 
     // if (user.otp !== otp) {
-    if (otp !== STATIC_OTP) {  
+    if (otp.toString().trim() !== STATIC_OTP) {
       return res.status(400).json({ 
         success: false, 
         message: "Invalid OTP" 
@@ -156,7 +156,7 @@ const verifyOtp = async (req, res) => {
 
 
     // if (user.otp !== otp) {
-     if (otp !== STATIC_OTP) { 
+    if (otp.toString().trim() !== STATIC_OTP) { 
       return res.status(400).json({ 
         success: false, 
         message: "Invalid OTP" 
