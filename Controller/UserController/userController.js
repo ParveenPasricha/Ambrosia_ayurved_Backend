@@ -2,7 +2,9 @@ const User = require("../../Schema/UserSchema/userSchema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs"); 
 
-const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
+// const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
+
+const STATIC_OTP = "101010";
 
 const requestOtp = async (req, res) => {
   try {
@@ -16,7 +18,8 @@ const requestOtp = async (req, res) => {
     }
 
     let user = await User.findOne({ mobile });
-    const otp = generateOTP();
+    // const otp = generateOTP();
+    const otp = STATIC_OTP; 
     const otpExpires = new Date(Date.now() + 5 * 60 * 1000); 
 
     if (!user) {
@@ -93,8 +96,8 @@ const completeSignup = async (req, res) => {
       });
     }
 
-    // Verify OTP
-    if (user.otp !== otp) {
+    // if (user.otp !== otp) {
+    if (otp !== STATIC_OTP) {  
       return res.status(400).json({ 
         success: false, 
         message: "Invalid OTP" 
@@ -151,8 +154,9 @@ const verifyOtp = async (req, res) => {
       });
     }
 
-    // Verify OTP
-    if (user.otp !== otp) {
+
+    // if (user.otp !== otp) {
+     if (otp !== STATIC_OTP) { 
       return res.status(400).json({ 
         success: false, 
         message: "Invalid OTP" 
