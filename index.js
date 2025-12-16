@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors'); 
 const userRoute = require('./Routes/UserRoute/userRoute');
-
 dotenv.config();
 
 const app = express();
@@ -11,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({ 
     origin: ['https://ambrosiaayurved.vercel.app',
-    "http://localhost:3000"],
+    "http://localhost:5173"],
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 
