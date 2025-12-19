@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const userRoute = require("./Routes/UserRoute/userRoute");
 const adminRoute = require("./Routes/AdminRoute/AdminLoginRoute");
+const productRoutes = require('./Routes/AdminRoute/ProductRoute');
 
 dotenv.config();
 
@@ -35,6 +36,8 @@ const PORT = 5000;
 
 app.use("/api", userRoute);
 app.use("/api/admin", adminRoute);
+app.use('/products', productRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("Welcome Node Project");
