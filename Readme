@@ -1,0 +1,33 @@
+Admin 
+/* ****************************************************************************** */
+Admin Login Postman Testing
+
+http://localhost:5000/api/admin/register
+{
+  "adminEmail": "admin@example.com",
+  "adminPassword": "123456"
+}
+
+----------------------------------------------------------------
+http://localhost:5000/api/admin/login
+{
+  "adminEmail": "admin@example.com",
+  "adminPassword": "123456"
+}
+
+----------------------------------------------------------------
+http://localhost:5000/api/admin/forgot-password
+{
+  "adminEmail": "admin@example.com",
+}
+
+Send Email From NodeMailer on Your Gmail find token on link 
+----------------------------------------------------------------
+http://localhost:5000/api/admin/reset-password/<token>
+{
+  "newPassword": "newPassword123"
+}
+
+----------------------------------------------------------------
+/* ****************************************************************************** */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
